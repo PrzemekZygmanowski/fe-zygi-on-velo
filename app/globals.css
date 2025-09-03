@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* kolory */
+  --color-forest: rgb(46 125 50); /* albo #2E7D32 */
+  --color-sun: rgb(251 192 45);
+  --color-sky: rgb(2 136 209);
+  --color-earth: rgb(109 76 65);
+  --color-neutral-light: rgb(245 245 245);
+  --color-neutral-dark: rgb(33 33 33);
+  /* czcionki */
+  --font-sans: var(--font-sans); /* korpus */
+  --font-display: var(--font-display); /* nagłówki */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans); /* korpus */
+  --font-display: var(--font-display); /* nagłówki */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  /* szerokość czytelna na desktopie */
+  @apply mx-auto max-w-[68ch] text-base md:text-lg;
+}
+
+.content p,
+.content li {
+  @apply leading-7 md:leading-relaxed;
+}
+
+.content h1 {
+  @apply text-3xl md:text-5xl font-display
+         leading-[1.15] md:leading-[1.1] tracking-tight;
+}
+
+.content h2 {
+  @apply text-2xl md:text-3xl font-display
+         leading-snug md:leading-tight;
+}
+
+.content h3 {
+  @apply text-xl md:text-2xl font-display
+         leading-snug md:leading-normal;
+}
+
+.content blockquote {
+  @apply border-l-4 pl-4 italic leading-8 md:leading-8;
+}
+
+.content small,
+.content figcaption {
+  @apply text-sm leading-6 text-neutral-dark/80;
+}
+
+.content ul {
+  @apply list-disc;
+}
+.content ol {
+  @apply list-decimal;
 }
